@@ -33,6 +33,7 @@ files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
         version: "detect",
       },
     },
+    "parser": "@babel/eslint-parser",
   },
 
   // Desativa regras que conflitam com Prettier
