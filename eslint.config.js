@@ -1,43 +1,41 @@
 import js from "@eslint/js";
 import globals from "globals";
-import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import pluginPrettier from "eslint-plugin-prettier";
 import configPrettier from "eslint-config-prettier";
+import { defineConfig } from "eslint/config";
 
-export default tseslint.config(
-  // 1. Ignorar pastas desnecessárias
-  { ignores: ["dist", "node_modules"] },
-  
-  // 2. Configurações recomendadas de JS e TS
+export default defineConfig([
   js.configs.recommended,
-  ...tseslint.configs.recommended,
-  
-  // 3. Configuração do React
+
+  pluginReact.configs.flat.recommended,
+
   {
-    ...pluginReact.configs.flat.recommended,
-    files: ["**/*.{ts,tsx,js,jsx}"],
+    
+files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
+
     languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.es2021,
-      },
+      globals: globals.browser,
     },
-    settings: {
-      react: {
-        version: "detect", // Detecta automaticamente a versão do React
-      },
-    },
+
     plugins: {
       react: pluginReact,
       prettier: pluginPrettier,
     },
+
     rules: {
-      "react/react-in-jsx-scope": "off", // Necessário para React 17+
-      "prettier/prettier": "error",      // Mostra erros do Prettier no ESLint
+      "react/react-in-jsx-scope": "off",
+      "prettier/prettier": "error",
+    },
+
+    settings: {
+      react: {
+        version: "detect",
+      },
     },
   },
-  
-  // 4. DESATIVAR REGRAS CONFLITANTES (Sempre por último)
-  configPrettier
-);
+
+  // Desativa regras que conflitam com Prettier
+  configPrettier,
+]);
+
