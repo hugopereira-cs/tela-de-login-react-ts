@@ -19,6 +19,10 @@ export const InputContainer = styled.div`
         outline: none;
     }
 
+    & p {
+      color: red;
+    }
+
 `
 
 export const ErrorMessage = styled.p`
