@@ -1,4 +1,4 @@
-export interface FormLoginProps {{
+export interface FormLoginProps {
   email: string;
   password: string;
 }

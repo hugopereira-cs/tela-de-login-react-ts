@@ -1,8 +1,8 @@
-import { Control } from 'react-hook-form';
-import { FormLoginProps } from '../../pages/types';
+import { Control, FieldPath } from 'react-hook-form';
+import { FormLoginProps } from '../../pages/Login/types';
 
-export interface InputProps {
-  control: Control<FormLoginProps>;
-  name: "email" | "password";
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'name'> {
+  control: Control<any,any>;
+  name: string;
   errorMessage?: string;
 }

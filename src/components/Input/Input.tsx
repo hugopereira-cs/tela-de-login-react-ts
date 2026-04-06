@@ -6,7 +6,7 @@ export const Input = ({ control, name, errorMessage, ...rest }: InputProps) => {
   return (
     <>
     <InputContainer>
-      <Controller 
+      <Controller
         control={control}
         name={name}
         render={({ field: { onChange, onBlur, value, ref } }) => (
