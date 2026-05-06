@@ -9,10 +9,9 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: 'Nunito', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #81259D;
+    background-color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.primary};
+    transition: all 0.25s linear; // Muda o tema de forma suave
   }
 
   input, button, textarea, h1, h2, h3, h4, h5, h6 {

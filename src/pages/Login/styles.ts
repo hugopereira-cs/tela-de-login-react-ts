@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const LoginContainer = styled.div`
   width: 100%;
   max-width: 420px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.primary};
   border-radius: 8px;
   padding: 20px;
   flex: 1;
@@ -23,7 +23,7 @@ export const LoginContainer = styled.div`
 export const Title = styled.h1`
   font-size: 42px;
   font-weight: 700;
-  color: #81259d;
+  color: ${({ theme }) => theme.secondary};
 `;
 
 export const Row = styled.div`

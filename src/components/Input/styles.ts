@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const InputContainer = styled.div`
     width: 100%;
     height: 42px;
-    color: #FFF;
+    color: ${({ theme }) => theme.primary};
 
-    border: 1px solid #81259D;
+    border: 1px solid ${({ theme }) => theme.secondary};
     border-radius: 21px;
     overflow: hidden;
     padding: 0 10px;
@@ -17,6 +17,7 @@ export const InputContainer = styled.div`
         background-color: transparent;
         border: 0;
         outline: none;
+        color: ${({ theme }) => theme.secondary};
     }
 
     & p {

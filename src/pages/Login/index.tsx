@@ -1,6 +1,6 @@
 import { Button } from '../../components/Button/Button';
 import { Input } from '../../components/Input/Input';
-import { Container, LoginContainer, Column, Row, Spacing, Title } from './styles';
+import { Container, LoginContainer, Column, Spacing, Title } from './styles';
 import { useForm } from 'react-hook-form';
 import { defaultValues, FormLoginProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,6 +13,7 @@ const schema = yup.object({
 .required();
 
 export default function Login() {
+  
   const { 
     control, 
     formState: { errors, isValid }
@@ -23,6 +24,7 @@ export default function Login() {
       reValidateMode: "onChange"
     });
 
+    // TODO: Remover console.log depois de testar
     console.log(isValid);
 
   return (
