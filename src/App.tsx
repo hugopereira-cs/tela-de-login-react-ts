@@ -13,8 +13,8 @@ export default function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/welcome" element={<Welcome />} />
+          <Route path="/" element={<Welcome />} />
+          <Route path="/login" element={<Login />} />
           {/* Adicione outras rotas aqui, se necessário */}
         </Routes>
       </Router>
