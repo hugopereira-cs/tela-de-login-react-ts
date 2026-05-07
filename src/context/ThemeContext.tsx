@@ -13,14 +13,12 @@ export const AppThemeProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [currentTheme, setCurrentTheme] = useState<ThemeType>(darkTheme);
 
   const toggleTheme = () => {
-    setCurrentTheme(prevTheme => (prevTheme === lightTheme ? darkTheme : lightTheme));
+    setCurrentTheme((prevTheme) => (prevTheme === lightTheme ? darkTheme : lightTheme));
   };
 
   return (
     <ThemeContext.Provider value={{ theme: currentTheme, toggleTheme }}>
-      <StyledThemeProvider theme={currentTheme}>
-        {children}
-      </StyledThemeProvider>
+      <StyledThemeProvider theme={currentTheme}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );
 };

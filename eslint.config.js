@@ -3,40 +3,29 @@ import globals from "globals";
 import pluginReact from "eslint-plugin-react";
 import pluginPrettier from "eslint-plugin-prettier";
 import configPrettier from "eslint-config-prettier";
-import { defineConfig } from "eslint/config";
+import tseslint from "typescript-eslint";
 
-export default defineConfig([
+export default tseslint.config(
   js.configs.recommended,
-
-  pluginReact.configs.flat.recommended,
-
+  ...tseslint.configs.recommended,
   {
-    
-files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-
+    files: ["**/*.{ts,tsx}"],
     languageOptions: {
       globals: globals.browser,
     },
-
     plugins: {
       react: pluginReact,
       prettier: pluginPrettier,
     },
-
     rules: {
       "react/react-in-jsx-scope": "off",
       "prettier/prettier": "error",
     },
-
     settings: {
       react: {
         version: "detect",
       },
     },
-    "parser": "@babel/eslint-parser",
   },
-
-  // Desativa regras que conflitam com Prettier
-  configPrettier,
-]);
-
+  configPrettier
+);

@@ -4,28 +4,25 @@ import { Container, LoginContainer, Column, Spacing, Title } from './styles';
 import { useForm } from 'react-hook-form';
 import { defaultValues, FormLoginProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
+import * as yup from 'yup';
 
-const schema = yup.object({
-  email: yup.string().email("E-mail inválido").required("Campo obrigatório"),
-  password: yup.string().min(6, "No mínimo 6 caracteres").required("Campo obrigatório"),
-})
-.required();
+const schema = yup
+  .object({
+    email: yup.string().email('E-mail inválido').required('Campo obrigatório'),
+    password: yup.string().min(6, 'No mínimo 6 caracteres').required('Campo obrigatório')
+  })
+  .required();
 
-export default function Login() {
-  
-  const { 
-    control, 
+export const Login = () => {
+  const {
+    control,
     formState: { errors, isValid }
-  } = useForm<FormLoginProps>({ 
-      defaultValues, 
-      resolver: yupResolver(schema), 
-      mode: "onBlur",
-      reValidateMode: "onChange"
-    });
-
-    // TODO: Remover console.log depois de testar
-    console.log(isValid);
+  } = useForm<FormLoginProps>({
+    defaultValues,
+    resolver: yupResolver(schema),
+    mode: 'onChange',
+    reValidateMode: 'onChange'
+  });
 
   return (
     <Container>
@@ -35,7 +32,7 @@ export default function Login() {
           <Spacing />
           <Input
             name="email"
-            placeholder="Email" 
+            placeholder="Email"
             control={control}
             errorMessage={errors?.email?.message}
           />
@@ -48,9 +45,9 @@ export default function Login() {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title={isValid ? "Entrar" : "🚫"} disabled={!isValid} />
+          <Button title={isValid ? 'Entrar' : '🚫'} disabled={!isValid} />
         </Column>
       </LoginContainer>
     </Container>
-  )
-}
+  );
+};

@@ -15,7 +15,7 @@ Este projeto é uma aplicação de tela de login moderna e funcional, desenvolvi
 ## ✨ Funcionalidades
 
 - **Formulário Reativo**: Gerenciamento de estados de input através do componente `Controller` do React Hook Form.
-- **Validação em Tempo Real**: Validação de campos acionada no evento `onBlur` e revalidação no `onChange`.
+- **Validação em Tempo Real**: Validação de campos acionada no evento `onChange`, proporcionando feedback instantâneo ao usuário.
 - **Feedback de Erro**: Exibição de mensagens de erro customizadas para cada campo de entrada.
 - **Habilitação Dinâmica do Botão**: O botão de login permanece desabilitado e com indicador visual (🚫) até que todos os campos do formulário sejam válidos.
 - **Componentização**: Input e Button encapsulados em componentes reutilizáveis com suporte a props dinâmicas.
