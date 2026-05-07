@@ -8,8 +8,11 @@ import {
   Button,
   Registred
 } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 export const Welcome = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <WelcomeContainer>
@@ -22,9 +25,13 @@ export const Welcome = () => {
       <CardContainer>
         <Subtitle>Cadastre-se grátis e descubra tudo o que temos a oferecer!</Subtitle>
         <ButtonContainer>
-          <Button>Cadastre-se</Button>
+          <Button title="Cadastre-se" onClick={() => navigate('/register')}>
+            Cadastre-se
+          </Button>
           <Registred>Já tem uma conta? Faça login</Registred>
-          <Button>Login</Button>
+          <Button title="Fazer Login" onClick={() => navigate('/login')}>
+            Login
+          </Button>
         </ButtonContainer>
       </CardContainer>
     </Container>
