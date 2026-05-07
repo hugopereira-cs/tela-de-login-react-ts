@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+  width: full;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -13,6 +13,7 @@ export const LoginContainer = styled.div`
   max-width: 420px;
   background-color: ${({ theme }) => theme.primary};
   border-radius: 8px;
+  margin: 20px;
   padding: 20px;
   flex: 1;
   display: flex;
@@ -23,6 +24,7 @@ export const LoginContainer = styled.div`
 export const Title = styled.h1`
   font-size: 42px;
   font-weight: 700;
+  letter-spacing: 0.1em;
   color: ${({ theme }) => theme.secondary};
 `;
 
