@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const RegisterContainer = styled.div`
   width: 100%;
-  max-width: 620px;
+  max-width: 800px;
   background-color: transparent;
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.primary};
@@ -19,7 +19,7 @@ export const RegisterContainer = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: Center;
+  align-items: center;
   justify-content: center;
 
   @media (min-width: 768px) {
@@ -83,9 +83,13 @@ export const Column = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-right: 20px;
+  margin: 20px;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    padding-right: 20px;
+  }
 `;
 
 export const Spacing = styled.div`

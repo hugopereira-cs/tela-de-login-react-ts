@@ -10,8 +10,11 @@ import {
   Subtitle,
   Title
 } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 export const Register = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <RegisterContainer>
@@ -35,7 +38,7 @@ export const Register = () => {
           <Button>Cadastrar</Button>
           <BackToLogin>Já tem uma conta? Faça login</BackToLogin>
           <Spacing />
-          <Button>Login</Button>
+          <Button onClick={() => navigate('/login')}>Login</Button>
           <Spacing />
         </Column>
       </RegisterContainer>
