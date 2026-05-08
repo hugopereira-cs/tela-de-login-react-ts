@@ -5,7 +5,7 @@ export const InputContainer = styled.div`
   height: 42px;
   color: ${({ theme }) => theme.primary};
 
-  border: 1px solid ${({ theme }) => theme.secondary};
+  border: 1px solid ${({ theme }) => theme.primary};
   border-radius: 21px;
   overflow: hidden;
   padding: 0 10px;
@@ -17,7 +17,7 @@ export const InputContainer = styled.div`
     background-color: transparent;
     border: 0;
     outline: none;
-    color: ${({ theme }) => theme.secondary};
+    color: ${({ theme }) => theme.primary};
   }
 
   & p {

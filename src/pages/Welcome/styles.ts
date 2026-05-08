@@ -16,7 +16,7 @@ export const Container = styled.div`
 `;
 
 export const WelcomeContainer = styled.div`
-  width: full;
+  width: 100%;
   max-width: 600px;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ export const WelcomeContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
-  width: full;
+  width: 100%;
   max-width: 600px;
   background-color: transparent;
   border: 1px solid ${({ theme }) => theme.primary};
@@ -66,8 +66,9 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 16px;
+  width: 80%;
   font-weight: 500;
   color: ${({ theme }) => theme.primary};
   background-color: transparent;

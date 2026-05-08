@@ -11,8 +11,9 @@ export const Container = styled.div`
 export const LoginContainer = styled.div`
   width: 100%;
   max-width: 420px;
-  background-color: ${({ theme }) => theme.primary};
+  background-color: transparent;
   border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.primary};
   margin: 20px;
   padding: 20px;
   flex: 1;
@@ -25,7 +26,7 @@ export const Title = styled.h1`
   font-size: 42px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.primary};
 `;
 
 export const Row = styled.div`
