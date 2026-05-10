@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
+  padding: 0 20px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     flex-direction: row;
-    padding-top: 0;
+    justify-content: center;
   }
 `;
 
@@ -26,6 +26,10 @@ export const WelcomeContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
+
+  @media (min-width: 768px) {
+    padding: 30px;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -41,21 +45,33 @@ export const CardContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    padding: 30px;
+  }
 `;
 
 export const Title = styled.h1`
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.15em;
   color: ${({ theme }) => theme.primary};
   margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 48px;
+  }
 `;
 
 export const Subtitle = styled.span`
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 400;
   color: ${({ theme }) => theme.primary};
   margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
 export const ButtonContainer = styled.div`

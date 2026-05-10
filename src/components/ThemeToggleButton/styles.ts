@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 export const ToggleButton = styled.button`
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 999;
   background: transparent;
   border: none;
   cursor: pointer;

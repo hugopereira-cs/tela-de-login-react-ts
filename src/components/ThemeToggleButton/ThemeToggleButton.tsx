@@ -8,9 +8,7 @@ export const ThemeToggleButton = () => {
   const isDarkMode = useAppTheme().theme.title === 'dark';
 
   return (
-    <ToggleButton
-      onClick={toggleTheme}
-      style={{ position: 'fixed', top: 10, right: 10, zIndex: 999 }}>
+    <ToggleButton onClick={toggleTheme}>
       {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
     </ToggleButton>
   );
