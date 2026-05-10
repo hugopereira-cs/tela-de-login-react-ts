@@ -1,6 +1,5 @@
 import {
   ButtonContainer,
-  Container,
   Title,
   WelcomeContainer,
   CardContainer,
@@ -9,6 +8,7 @@ import {
   Registred
 } from './styles';
 import { useNavigate } from 'react-router-dom';
+import { Container } from '../../components/Container/Container';
 
 export const Welcome = () => {
   const navigate = useNavigate();

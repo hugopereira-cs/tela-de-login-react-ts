@@ -1,6 +1,7 @@
 import { Button } from '../../components/Button/Button';
 import { Input } from '../../components/Input/Input';
-import { Container, LoginContainer, Column, Spacing, Title } from './styles';
+import { Container } from '../../components/Container/Container';
+import { LoginContainer, Column, Spacing, Title } from './styles';
 import { useForm } from 'react-hook-form';
 import { defaultValues, FormLoginProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
