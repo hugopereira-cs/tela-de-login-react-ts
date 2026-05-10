@@ -4,11 +4,10 @@ export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 60px;
+  height: 30px;
   align-items: center;
   background-color: transparent;
   color: ${({ theme }) => theme.primary};
-  margin-bottom: 40px;
   top: 0;
   z-index: 10;
   padding: 0 20px;
