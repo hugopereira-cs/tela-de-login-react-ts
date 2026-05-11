@@ -6,6 +6,8 @@ import { useForm } from 'react-hook-form';
 import { defaultValues, FormLoginProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const schema = yup
   .object({
@@ -24,6 +26,14 @@ export const Login = () => {
     mode: 'onChange',
     reValidateMode: 'onChange'
   });
+
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    login();
+    navigate('/home');
+  };
 
   return (
     <Container>
@@ -46,7 +56,7 @@ export const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title={isValid ? 'Entrar' : '🚫'} disabled={!isValid} />
+          <Button title={isValid ? 'Entrar' : '🚫'} disabled={!isValid} onClick={handleLogin} />
         </Column>
       </LoginContainer>
     </Container>
