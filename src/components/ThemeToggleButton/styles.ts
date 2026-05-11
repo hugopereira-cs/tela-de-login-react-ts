@@ -4,6 +4,7 @@ export const ToggleButton = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
+  padding-top: 4px;
   color: ${({ theme }) => theme.primary};
   transition: all 0.3s ease;
 
