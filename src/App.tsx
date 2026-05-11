@@ -6,20 +6,25 @@ import { Header } from './components/Header/Header';
 import { Login } from './pages/Login/index';
 import { Welcome } from './pages/Welcome/index';
 import { Register } from './pages/Register';
+import { AuthProvider } from './context/AuthContext';
+import { Home } from './pages/Home';
 
 export default function App() {
   return (
     <AppThemeProvider>
-      <GlobalStyles />
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          {/* Adicione outras rotas aqui, se necessário */}
-        </Routes>
-      </Router>
+      <AuthProvider>
+        <GlobalStyles />
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Welcome />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/home" element={<Home />} />
+            {/* Adicione outras rotas aqui, se necessário */}
+          </Routes>
+        </Router>
+      </AuthProvider>
     </AppThemeProvider>
   );
 }
