@@ -12,6 +12,10 @@ export const LoginContainer = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    padding: 30px;
+  }
 `;
 
 export const Title = styled.h1`
