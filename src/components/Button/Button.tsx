@@ -1,6 +1,6 @@
 import { ButtonContainer } from './styles';
 import { ButtonProps } from './types';
 
-export const Button = ({ title, onClick }: ButtonProps) => {
-  return <ButtonContainer onClick={onClick}>{title}</ButtonContainer>;
+export const Button = ({ title, type }: ButtonProps) => {
+  return <ButtonContainer type={type}>{title}</ButtonContainer>;
 };

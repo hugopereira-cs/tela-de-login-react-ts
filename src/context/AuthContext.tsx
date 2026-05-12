@@ -2,7 +2,7 @@ import { createContext, useState, useContext, ReactNode } from 'react';
 
 /**
  * Contexto de autenticação para gerenciar o estado de login do usuário.
- * Fornece funções para login e logout, além de um estado booleano para indicar se o usuário está autenticado.
+ * Fornece funções para login e logout, além de um estado booleano para indicar se o usuário está autenticado.gemin
  */
 interface AuthContextData {
   isAuthenticated: boolean;
