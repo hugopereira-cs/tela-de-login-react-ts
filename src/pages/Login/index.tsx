@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Button/Button';
 import { Input } from '../../components/Input/Input';
 import { Container } from '../../components/Container/Container';
-import { useAuth } from '../../context/AuthContext';
 
 import { LoginContainer, Column, Spacing, Title } from './styles';
+import { supabase } from '../../services/supabase';
 
 const schema = z.object({
   email: z.string().min(1, 'Campo obrigatório').email('Email inválido'),
@@ -23,6 +23,8 @@ const defaultValues: FormLoginProps = {
 };
 
 export const Login = () => {
+  const navigate = useNavigate();
+
   const {
     control,
     handleSubmit,
@@ -33,13 +35,22 @@ export const Login = () => {
     mode: 'onChange'
   });
 
-  const onSubmit = (data: FormLoginProps) => {
-    const { login } = useAuth();
-    const navigate = useNavigate();
+  const onSubmit = async (data: FormLoginProps) => {
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password
+      });
 
-    console.log('Dados do formulário:', data);
-    login();
-    navigate('/home');
+      if (error) {
+        alert('Erro ao fazer login: ' + error.message);
+        return;
+      }
+
+      navigate('/home');
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+    }
   };
 
   return (
