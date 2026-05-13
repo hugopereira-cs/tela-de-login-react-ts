@@ -12,8 +12,6 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { Container } from '../../components/Container/Container';
 
-// TODO: Implementar a funcionalidade de registro, integrando com o Supabase para criar uma nova conta de usuário. Atualmente, a página de registro é apenas um layout sem funcionalidade.
-
 export const Register = () => {
   const navigate = useNavigate();
 
@@ -35,6 +33,10 @@ export const Register = () => {
           <Spacing />
           <InputContainer>
             <input placeholder="Senha" />
+          </InputContainer>
+          <Spacing />
+          <InputContainer>
+            <input placeholder="Confirmar Senha" />
           </InputContainer>
           <Spacing />
           <Button>Cadastrar</Button>
