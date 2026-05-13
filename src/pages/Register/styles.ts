@@ -16,6 +16,7 @@ export const RegisterContainer = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
+    gap: 40px;
   }
 `;
 
