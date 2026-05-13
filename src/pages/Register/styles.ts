@@ -89,7 +89,7 @@ export const Spacing = styled.div`
   margin: 10px 0;
 `;
 
-export const BackToLogin = styled.p`
+export const BackToLoginText = styled.p`
   font-size: 14px;
   color: ${({ theme }) => theme.primary};
   margin-top: 20px;
