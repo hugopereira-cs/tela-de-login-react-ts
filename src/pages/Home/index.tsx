@@ -1,6 +1,7 @@
 import { HomeContainer, HomeText, Title } from './styles';
 import { Container } from '../../components/Container/Container';
 
+// TODO: Adicionar uma forma de mostrar o nome da pessoa logada detro do HomeText ou do Title
 export const Home = () => {
   return (
     <Container>
