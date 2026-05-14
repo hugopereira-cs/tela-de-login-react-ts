@@ -87,6 +87,7 @@ export const Spacing = styled.div`
   margin: 10px 0;
 `;
 
+// TODO: Componentizar este texto e link
 export const BackToLoginText = styled.p`
   font-size: 14px;
   color: ${({ theme }) => theme.primary};

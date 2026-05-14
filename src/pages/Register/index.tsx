@@ -1,13 +1,5 @@
 import { Button } from '../../components/Button/Button';
-import {
-  BackToLoginText,
-  CardContainer,
-  Column,
-  RegisterContainer,
-  Spacing,
-  Subtitle,
-  Title
-} from './styles';
+import { CardContainer, Column, RegisterContainer, Spacing, Subtitle, Title } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { Container } from '../../components/Container/Container';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -15,6 +7,7 @@ import * as z from 'zod';
 import { supabase } from '../../services/supabase';
 import { useForm } from 'react-hook-form';
 import { Input } from '../../components/Input/Input';
+import { RedirectText } from '../../components/RedirectText';
 
 const schema = z
   .object({
@@ -114,9 +107,7 @@ export const Register = () => {
             />
             <Spacing />
             <Button title="Cadastrar" disabled={!isValid} type="submit" />
-            <BackToLoginText>Já tem uma conta? Faça login</BackToLoginText>
-            <Spacing />
-            <Button type="submit" title="Login" onClick={() => navigate('/login')} />
+            <RedirectText text="Já tem conta?" linkText="Faça login" linkTo="/login" />
             <Spacing />
           </Column>
         </form>

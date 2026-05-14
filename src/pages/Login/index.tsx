@@ -9,6 +9,7 @@ import { Container } from '../../components/Container/Container';
 
 import { LoginContainer, Column, Spacing, Title } from './styles';
 import { supabase } from '../../services/supabase';
+import { RedirectText } from '../../components/RedirectText';
 
 const schema = z.object({
   email: z.string().min(1, 'Campo obrigatório').email('Email inválido'),
@@ -76,6 +77,8 @@ export const Login = () => {
             />
             <Spacing />
             <Button title={isValid ? 'Entrar' : '🚫'} disabled={!isValid} type="submit" />
+            <Spacing />
+            <RedirectText text="Não tem conta?" linkText="Cadastre-se" linkTo="/register" />
           </Column>
         </form>
       </LoginContainer>
