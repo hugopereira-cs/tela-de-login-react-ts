@@ -1,4 +1,4 @@
-import { Button } from '../Welcome/styles';
+import { Button } from '../../components/Button/Button';
 import {
   BackToLoginText,
   CardContainer,
@@ -116,7 +116,7 @@ export const Register = () => {
             <Button title="Cadastrar" disabled={!isValid} type="submit" />
             <BackToLoginText>Já tem uma conta? Faça login</BackToLoginText>
             <Spacing />
-            <Button onClick={() => navigate('/login')}>Login</Button>
+            <Button type="submit" title="Login" onClick={() => navigate('/login')} />
             <Spacing />
           </Column>
         </form>

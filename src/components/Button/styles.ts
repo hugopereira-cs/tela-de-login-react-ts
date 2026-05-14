@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const ButtonContainer = styled.button`
-  width: 100%;
+  width: 80%;
   height: 42px;
   padding: 0 20px;
-  background-color: ${({ theme }) => theme.primary};
-  color: ${({ theme }) => theme.secondary};
+  background-color: transparent;
+  align-self: center;
+  color: ${({ theme }) => theme.primary};
 
   border: 1px solid ${({ theme }) => theme.primary};
   border-radius: 21px;

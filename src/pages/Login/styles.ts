@@ -8,7 +8,7 @@ export const LoginContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.primary};
   margin: 20px;
   padding: 20px;
-  flex: 1;
+
   display: flex;
   align-items: flex-start;
   justify-content: center;

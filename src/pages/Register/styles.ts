@@ -8,7 +8,6 @@ export const RegisterContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.primary};
   margin: 20px;
   padding: 20px;
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +25,6 @@ export const CardContainer = styled.div`
   background-color: transparent;
   margin: 20px;
   padding: 20px;
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -76,11 +74,11 @@ export const Column = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 20px;
   align-items: center;
   justify-content: center;
 
   @media (min-width: 768px) {
+    margin: 20px 30px 20px 0;
     padding-right: 20px;
   }
 `;
