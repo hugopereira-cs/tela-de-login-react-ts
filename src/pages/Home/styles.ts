@@ -9,7 +9,7 @@ export const HomeContainer = styled.div`
   border-radius: 8px;
   margin: 20px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 20px;
 
   @media (min-width: 768px) {
@@ -22,7 +22,7 @@ export const Title = styled.h1`
   font-weight: 700;
   letter-spacing: 0.15em;
   color: ${({ theme }) => theme.primary};
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 
   @media (min-width: 768px) {
     font-size: 48px;
