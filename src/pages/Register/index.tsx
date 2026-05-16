@@ -9,6 +9,7 @@ import { useForm } from 'react-hook-form';
 import { Input } from '../../components/Input/Input';
 import { RedirectText } from '../../components/RedirectText';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 const schema = z
   .object({
@@ -60,10 +61,11 @@ export const Register = () => {
       });
 
       if (error) {
-        alert(`Erro ao cadastrar: ${error.message}`);
+        toast.error(`Erro ao cadastrar: ${error.message}`);
         return;
       }
 
+      toast.success('Cadastro realizado com sucesso!');
       navigate('/login');
     } catch (error) {
       console.error(`Erro inesperado: ${error}`);

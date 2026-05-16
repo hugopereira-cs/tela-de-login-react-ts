@@ -5,6 +5,7 @@ import { User } from '@supabase/supabase-js';
 interface AuthContextData {
   user: User | null;
   isAuthenticated: boolean;
+  loading: boolean;
   logout: () => Promise<void>;
 }
 
@@ -12,11 +13,13 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Verifica se já existe uma sessão ativa ao carregar o app
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
+      setLoading(false);
     });
 
     // Escuta mudanças na autenticação (login/logout)
@@ -24,6 +27,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       data: { subscription }
     } = supabase.auth.onAuthStateChange((event, session) => {
       setUser(session?.user ?? null);
+      setLoading(false);
     });
 
     return () => subscription.unsubscribe();
@@ -34,7 +38,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated: !!user, logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated: !!user, loading, logout }}>
       {children}
     </AuthContext.Provider>
   );

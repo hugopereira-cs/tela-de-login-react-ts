@@ -17,4 +17,13 @@ export default createGlobalStyle`
   input, button, textarea, h1, h2, h3, h4, h5, h6 {
     font-family: 'Nunito', sans-serif;
   }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 `;

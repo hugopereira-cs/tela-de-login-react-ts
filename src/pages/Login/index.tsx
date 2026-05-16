@@ -10,6 +10,8 @@ import { Container } from '../../components/Container/Container';
 import { LoginContainer, Column, Spacing, Title } from './styles';
 import { supabase } from '../../services/supabase';
 import { RedirectText } from '../../components/RedirectText';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 const schema = z.object({
   email: z.string().min(1, 'Campo obrigatório').email('Email inválido'),
@@ -24,6 +26,7 @@ const defaultValues: FormLoginProps = {
 };
 
 export const Login = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const {
@@ -38,19 +41,24 @@ export const Login = () => {
 
   const onSubmit = async (data: FormLoginProps) => {
     try {
+      setIsLoading(true);
+
       const { error } = await supabase.auth.signInWithPassword({
         email: data.email,
         password: data.password
       });
 
       if (error) {
-        alert('Erro ao fazer login: ' + error.message);
+        toast.error('Erro ao fazer login: ' + error.message);
         return;
       }
 
+      toast.success('Login realizado com sucesso!');
       navigate('/home');
     } catch (error) {
       console.error('Erro ao fazer login:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -76,7 +84,12 @@ export const Login = () => {
               errorMessage={errors?.password?.message}
             />
             <Spacing />
-            <Button title={isValid ? 'Entrar' : '🚫'} disabled={!isValid} type="submit" />
+            <Button
+              title={isValid ? 'Entrar' : '🚫'}
+              isLoading={isLoading}
+              disabled={!isValid}
+              type="submit"
+            />
             <Spacing />
             <RedirectText text="Não tem conta?" linkText="Cadastre-se" linkTo="/register" />
           </Column>
