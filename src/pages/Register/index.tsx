@@ -8,6 +8,7 @@ import { supabase } from '../../services/supabase';
 import { useForm } from 'react-hook-form';
 import { Input } from '../../components/Input/Input';
 import { RedirectText } from '../../components/RedirectText';
+import { useState } from 'react';
 
 const schema = z
   .object({
@@ -31,6 +32,7 @@ const defaultValues: FormRegisterProps = {
 };
 
 export const Register = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const {
@@ -45,6 +47,8 @@ export const Register = () => {
 
   const onSubmit = async (formData: FormRegisterProps) => {
     try {
+      setIsLoading(true); // Começa a carregar
+
       const { error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
@@ -60,10 +64,12 @@ export const Register = () => {
         return;
       }
 
-      alert('Cadastro realizado com sucesso! Verifique seu email ou faça o login.');
       navigate('/login');
     } catch (error) {
       console.error(`Erro inesperado: ${error}`);
+    } finally {
+      // Evita que o botão fique em "Carregando..." para sempre
+      setIsLoading(false); // Para de carregar, dando certo ou errado
     }
   };
 
@@ -106,7 +112,7 @@ export const Register = () => {
               errorMessage={errors?.confirmPassword?.message}
             />
             <Spacing />
-            <Button title="Cadastrar" disabled={!isValid} type="submit" />
+            <Button title="Cadastrar" isLoading={isLoading} disabled={!isValid} type="submit" />
             <RedirectText text="Já tem conta?" linkText="Faça login" linkTo="/login" />
             <Spacing />
           </Column>
