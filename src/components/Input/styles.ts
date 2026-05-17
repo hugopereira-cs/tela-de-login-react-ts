@@ -1,27 +1,46 @@
 import styled from 'styled-components';
 
-export const InputContainer = styled.div`
+export const InputWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+`;
+
+export const InputContainer = styled.div<{ hasError?: boolean }>`
   width: 100%;
   height: 42px;
-  color: ${({ theme }) => theme.primary};
+  display: flex;
+  align-items: center;
 
-  border: 1px solid ${({ theme }) => theme.primary};
+  border: 1px solid ${({ theme, hasError }) => (hasError ? 'red' : theme.primary)};
   border-radius: 21px;
-  overflow: hidden;
-  padding: 0 10px;
+  background-color: transparent;
+  padding: 0 15px;
 
   & input {
-    width: 100%;
-    height: 42px;
-    border-radius: 21px;
+    flex: 1;
+    height: 100%;
     background-color: transparent;
     border: 0;
     outline: none;
     color: ${({ theme }) => theme.primary};
+    font-size: 14px;
   }
+`;
 
-  & p {
-    color: red;
+export const ToggleButton = styled.button`
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: ${({ theme }) => theme.primary};
+  opacity: 0.7;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
   }
 `;
 
