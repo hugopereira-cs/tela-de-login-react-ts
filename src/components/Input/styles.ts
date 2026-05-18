@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const InputWrapper = styled.div`
   width: 100%;
   display: flex;
-  margin-bottom: 20px;
+  flex-direction: column;
 `;
 
 export const InputContainer = styled.div<{ hasError?: boolean }>`
