@@ -1,5 +1,19 @@
+/**
+ * @fileoverview Estilos globais da aplicação.
+ * Define reset de CSS, fontes padrão, cores de fundo e animações globais.
+ */
+
 import { createGlobalStyle } from 'styled-components';
 
+/**
+ * Estilos globais aplicados a toda a aplicação.
+ * Define:
+ * - Reset de margin e padding
+ * - Fonte padrão (Nunito)
+ * - Box-sizing
+ * - Cores de fundo e texto baseadas no tema
+ * - Animação de rotação (spin)
+ */
 export default createGlobalStyle`
   * {
     margin: 0;

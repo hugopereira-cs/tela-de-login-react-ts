@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Página de login da aplicação.
+ * Fornece formulário para autenticação de usuários existentes.
+ */
+
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -13,22 +18,55 @@ import { RedirectText } from '../../components/RedirectText';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
+/**
+ * Schema de validação do formulário de login usando Zod.
+ * Valida email como e-mail válido e senha com mínimo de 6 caracteres.
+ * @type {z.ZodObject}
+ */
 const schema = z.object({
   email: z.string().min(1, 'Campo obrigatório').email('Email inválido'),
   password: z.string().min(6, 'Mínimo de 6 caracteres')
 });
 
+/**
+ * Tipo infere do schema Zod para props do formulário de login.
+ * @typedef {Object} FormLoginProps
+ * @property {string} email - Email do usuário
+ * @property {string} password - Senha do usuário
+ */
 type FormLoginProps = z.infer<typeof schema>;
 
+/**
+ * Valores padrão do formulário de login.
+ * @type {FormLoginProps}
+ */
 const defaultValues: FormLoginProps = {
   email: '',
   password: ''
 };
 
+/**
+ * Página de login.
+ * Permite que usuários autentiquem-se fornecendo email e senha.
+ * Utiliza Supabase para autenticação e mostra notificações de sucesso/erro.
+ * Redireciona para /home após login bem-sucedido.
+ * @component
+ * @returns {JSX.Element} Formulário de login
+ * @example
+ * <Route path="/login" element={<Login />} />
+ */
 export const Login = () => {
+  /**
+   * Estado de carregamento durante a submissão do formulário.
+   * @type {[boolean, Function]}
+   */
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  /**
+   * Hook do react-hook-form para gerenciamento do formulário.
+   * Integrado com Zod para validação em tempo real.
+   */
   const {
     control,
     handleSubmit,
@@ -39,6 +77,12 @@ export const Login = () => {
     mode: 'onChange'
   });
 
+  /**
+   * Função chamada ao submeter o formulário.
+   * Envia credenciais para o Supabase e redireciona se bem-sucedido.
+   * @async
+   * @param {FormLoginProps} data - Dados validados do formulário
+   */
   const onSubmit = async (data: FormLoginProps) => {
     try {
       setIsLoading(true);

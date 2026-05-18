@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Componente raiz da aplicação.
+ * Configura os provedores de contexto, roteamento e componentes globais.
+ */
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppThemeProvider } from './context/ThemeContext';
 import GlobalStyles from './global';
@@ -13,6 +18,13 @@ import { PublicRoute } from './components/PublicRoute';
 import { Toaster } from 'sonner';
 import { Loader } from 'lucide-react';
 
+/**
+ * Componente que define as rotas da aplicação.
+ * Exibe um loader enquanto verifica o estado de autenticação do usuário.
+ * Após carregar, renderiza as rotas públicas e protegidas.
+ * @component
+ * @returns {JSX.Element} Router com todas as rotas da aplicação
+ */
 const AppRoutes = () => {
   const { loading } = useAuth();
 
@@ -71,12 +83,17 @@ const AppRoutes = () => {
             </ProtectedRoute>
           }
         />
-        {/* Adicione outras rotas aqui, se necessário */}
       </Routes>
     </Router>
   );
 };
 
+/**
+ * Componente principal da aplicação.
+ * Configura os provedores de tema e autenticação, e renderiza as rotas.
+ * @component
+ * @returns {JSX.Element} Árvore completa de componentes com provedores
+ */
 export default function App() {
   return (
     <AppThemeProvider>

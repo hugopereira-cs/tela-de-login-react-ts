@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Página de bem-vindo (página inicial pública).
+ * Exibe uma tela de boas-vindas com botões para login e registro.
+ */
+
 import {
   ButtonContainer,
   Title,
@@ -10,6 +15,15 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { Container } from '../../components/Container/Container';
 
+/**
+ * Página de bem-vindo da aplicação.
+ * Exibe uma mensagem de boas-vindas e botões para acessar login ou registro.
+ * Esta é a primeira página vista por usuários não autenticados.
+ * @component
+ * @returns {JSX.Element} Página de boas-vindas com botões de navegação
+ * @example
+ * <Route path="/" element={<Welcome />} />
+ */
 export const Welcome = () => {
   const navigate = useNavigate();
 

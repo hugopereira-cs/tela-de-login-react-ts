@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Página de registro da aplicação.
+ * Fornece formulário para criar nova conta de usuário.
+ */
+
 import { Button } from '../../components/Button/Button';
 import { CardContainer, Column, RegisterContainer, Spacing, Subtitle, Title } from './styles';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +16,12 @@ import { RedirectText } from '../../components/RedirectText';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
+/**
+ * Schema de validação do formulário de registro usando Zod.
+ * Valida nome com mínimo de 3 caracteres, email válido, senha com mínimo de 6 caracteres
+ * e verifica se as senhas coincidem.
+ * @type {z.ZodObject}
+ */
 const schema = z
   .object({
     name: z.string().min(3, 'O nome deve conter pelo menos 3 caracteres'),
@@ -20,11 +31,23 @@ const schema = z
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: 'As senhas não coincidem',
-    path: ['confirmPassword'] // Indica que o erro está relacionado ao campo confirmPassword
+    path: ['confirmPassword']
   });
 
+/**
+ * Tipo infere do schema Zod para props do formulário de registro.
+ * @typedef {Object} FormRegisterProps
+ * @property {string} name - Nome completo do usuário
+ * @property {string} email - Email do usuário
+ * @property {string} password - Senha escolhida
+ * @property {string} confirmPassword - Confirmação da senha
+ */
 type FormRegisterProps = z.infer<typeof schema>;
 
+/**
+ * Valores padrão do formulário de registro.
+ * @type {FormRegisterProps}
+ */
 const defaultValues: FormRegisterProps = {
   name: '',
   email: '',
@@ -32,10 +55,28 @@ const defaultValues: FormRegisterProps = {
   confirmPassword: ''
 };
 
+/**
+ * Página de registro.
+ * Permite que novos usuários criem uma conta fornecendo nome, email e senha.
+ * Utiliza Supabase para criar novo usuário e salva o nome como metadata.
+ * Redireciona para /login após registro bem-sucedido.
+ * @component
+ * @returns {JSX.Element} Formulário de registro
+ * @example
+ * <Route path="/register" element={<Register />} />
+ */
 export const Register = () => {
+  /**
+   * Estado de carregamento durante a submissão do formulário.
+   * @type {[boolean, Function]}
+   */
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  /**
+   * Hook do react-hook-form para gerenciamento do formulário.
+   * Integrado com Zod para validação em tempo real.
+   */
   const {
     control,
     handleSubmit,
@@ -46,6 +87,13 @@ export const Register = () => {
     mode: 'onChange'
   });
 
+  /**
+   * Função chamada ao submeter o formulário.
+   * Cria novo usuário no Supabase e redireciona para login.
+   * O nome é salvo nos metadados do usuário.
+   * @async
+   * @param {FormRegisterProps} formData - Dados validados do formulário
+   */
   const onSubmit = async (formData: FormRegisterProps) => {
     try {
       setIsLoading(true); // Começa a carregar
@@ -66,7 +114,7 @@ export const Register = () => {
       }
 
       toast.success('Cadastro realizado com sucesso!');
-      navigate('/login');
+      navigate('/login'); //! TODO: O usuário está logando automaticamente após o registro. Necessário corrigir
     } catch (error) {
       console.error(`Erro inesperado: ${error}`);
     } finally {
