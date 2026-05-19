@@ -2,6 +2,20 @@
 
 Aplicação web de autenticação moderna e funcional desenvolvida com React, TypeScript e Supabase. O projeto demonstra práticas recomendadas de desenvolvimento Front-end, incluindo gerenciamento de formulários, validação de esquemas, roteamento, gerenciamento de estado de autenticação e alternância de temas.
 
+<details>
+  <summary><strong>📸 Screenshots</strong></summary>
+  <br />
+  <h3 align="center">Temas</h3>
+  <p align="center">
+    <img src="./assets/lightTheme.png" width="400px"><img src="./assets/darkTheme.png" width="400px" >
+  </p>
+  <br />
+  <h3 align="center">Mobile</h3>
+  <p align="center">
+    <img src="./assets/mobile.png" width="400px">
+  </p>
+</details>
+
 ## 🚀 Tecnologias Utilizadas
 
 - **React 19**: Biblioteca principal para construção da interface.
