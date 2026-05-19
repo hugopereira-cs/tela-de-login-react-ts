@@ -89,7 +89,7 @@ export const Register = () => {
 
   /**
    * Função chamada ao submeter o formulário.
-   * Cria novo usuário no Supabase e redireciona para login.
+   * Cria novo usuário e loga automaticamente usando Supabase. O nome é salvo nos metadados do usuário.
    * O nome é salvo nos metadados do usuário.
    * @async
    * @param {FormRegisterProps} formData - Dados validados do formulário
@@ -114,7 +114,7 @@ export const Register = () => {
       }
 
       toast.success('Cadastro realizado com sucesso!');
-      navigate('/login'); //! TODO: O usuário está logando automaticamente após o registro. Necessário corrigir
+      navigate('/login');
     } catch (error) {
       console.error(`Erro inesperado: ${error}`);
     } finally {
