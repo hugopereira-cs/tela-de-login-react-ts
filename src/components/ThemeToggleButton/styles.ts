@@ -1,15 +1,25 @@
 import styled from 'styled-components';
 
 export const ToggleButton = styled.button`
-  background: transparent;
-  border: none;
+  background-color: ${({ theme }) => theme.surface};
+  border: 1px solid ${({ theme }) => theme.border};
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding-top: 4px;
-  color: ${({ theme }) => theme.primary};
-  transition: all 0.3s ease;
+  color: ${({ theme }) => theme.secondary};
+  transition: all 0.2s ease;
 
   &:hover {
-    opacity: 0.8;
-    transform: scale(1.1);
+    background-color: ${({ theme }) => theme.surfaceHover};
+    border-color: ${({ theme }) => theme.borderHover};
+    color: ${({ theme }) => theme.primary};
+  }
+
+  &:active {
+    transform: translateY(1px);
   }
 `;

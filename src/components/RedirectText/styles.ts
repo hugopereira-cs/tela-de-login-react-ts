@@ -5,32 +5,31 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  margin-top: 15px;
+  gap: 6px;
+  margin-top: 20px;
 
   span {
     font-size: 14px;
-    color: ${({ theme }) => theme.primary};
-    opacity: 0.7;
+    color: ${({ theme }) => theme.secondary};
   }
 `;
 
 export const LinkText = styled.p`
   font-size: 14px;
-  font-weight: 700;
-
+  font-weight: 600;
+  color: ${({ theme }) => theme.brand};
   cursor: pointer;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid transparent;
-  
+  transition:
+    color 0.2s ease,
+    transform 0.1s ease;
+
   &:hover {
-    opacity: 0.8;
-    border-bottom: 1px solid ${({ theme }) => theme.primary};  
-    transform: translateY(-1px); // Um leve pulinho para indicar interatividade
+    color: ${({ theme }) => theme.brandHover};
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
-  &active {
-    transform: translateY(0); // Volta para a posição original quando o link estiver ativo
+  &:active {
+    transform: translateY(1px);
   }
-}
 `;
