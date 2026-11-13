@@ -107,7 +107,7 @@ src/
 npm install
 ```
 
-2. Configure as variáveis de ambiente criando um arquivo `.env.local` na raiz do projeto:
+2. Configure as variáveis de ambiente criando um arquivo `.env` (ou `.env.local`) na raiz do projeto:
 
 ```env
 VITE_SUPABASE_URL=sua_url_supabase
@@ -143,17 +143,23 @@ npm run lint
 
 ## 🎨 Gerenciamento de Temas
 
-O projeto suporta dois temas:
+A aplicação conta com um sistema de design tokens semânticos suportando dois temas:
 
 - **Tema Escuro** (padrão):
-  - Background: `#0d1017`
-  - Texto principal: `#f1f6fc`
+  - Fundo: `#090d16` (slate escuro / obsidiana)
+  - Superfície dos Cartões: `#111726`
+  - Texto principal: `#f8fafc`
+  - Texto secundário: `#94a3b8`
+  - Destaque / Ação (`brand`): `#3b82f6`
 
 - **Tema Claro**:
-  - Background: `#f1f6fc`
-  - Texto principal: `#0d1017`
+  - Fundo: `#f8fafc` (slate-50 neutro)
+  - Superfície dos Cartões: `#ffffff`
+  - Texto principal: `#0f172a`
+  - Texto secundário: `#475569`
+  - Destaque / Ação (`brand`): `#2563eb`
 
-Alternar entre temas através do botão no Header. A escolha é salva apenas durante a sessão.
+Alternar entre temas através do botão no Header. A escolha é gerenciada via Context API.
 
 ## 📚 Componentes Principais
 
